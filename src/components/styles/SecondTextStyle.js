@@ -1,5 +1,3 @@
-
-
 const secondTextStyle = [
   { bottom: "200px", left: "150px", display: "none" },
 

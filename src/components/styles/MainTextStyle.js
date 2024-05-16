@@ -7,7 +7,7 @@ const mainTextStyle = [
 
   { bottom: "30px", left: "150px" },
 
-  { bottom: "20px", left: "150px" },
+  { bottom: "20px", left: "90px" },
 
   { bottom: "70px", left: "250px" },
 ];

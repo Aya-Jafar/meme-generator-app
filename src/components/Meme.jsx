@@ -3,6 +3,11 @@ import mainTextStyle from "./styles/MainTextStyle";
 import secondTextStyle from "./styles/SecondTextStyle";
 import { saveAs } from "file-saver";
 
+// TODO:
+// - Get the texts position in an image
+// - Hide original text from photos
+// - Add the new text in the same position of the hidden text
+
 function Meme(props) {
   const {
     index,
@@ -16,16 +21,9 @@ function Meme(props) {
 
   const commonStyles = {
     color: textColor,
-
     fontWeight: isBold ? "900" : "normal",
     fontStyle: isItalic ? "italic" : "normal",
-    // whiteSpace: "nowrap"
-  };
-
-  const handleDownload = () => {
-    // console.log(index);
-    let url = `..images/meme${index}.png`;
-    saveAs(url, "some-meme");
+    whiteSpace: "nowrap",
   };
 
   return (
@@ -49,13 +47,13 @@ function Meme(props) {
           style={{
             ...secondTextStyle[index],
             ...commonStyles,
+            whiteSpace: "wrap",
           }}
         >
           {secondaryInputText}
         </span>
       )}
       <br />
-      <button onClick={handleDownload}>Download</button>
     </div>
   );
 }

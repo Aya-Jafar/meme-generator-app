@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { SketchPicker } from "react-color";
 
-function ColorPicker({ onChange }) {
-
-  const handleChangeComplete = (newColor) => {
+function ColorPicker({ onChange, selectedColor }) {
+  
+  const handleChange = (newColor) => {
     onChange(newColor.hex);
   };
 
   return (
     <div>
       <SketchPicker
-        color="#000000"
+        color={selectedColor}
         width={200}
         height={200}
         className="color-picker"
-        onChangeComplete={handleChangeComplete}
+        onChange={handleChange}
       />
     </div>
   );

@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import images from "../data/imagesGetter";
 import Masonry from "react-masonry-css";
 import InputTextContext from "../data/InputProvider";
 import ColorPicker from "./ColorPicker";
 import Meme from "./Meme";
+import PositionTest from "./PositionTest";
 
 function MemesPhotos() {
   const { mainInputText, secondaryInputText } = useContext(InputTextContext);
@@ -12,17 +13,23 @@ function MemesPhotos() {
   const [bold, setBold] = useState(false);
   const [italic, setItalic] = useState(false);
 
-
   return (
     <>
+      <PositionTest />
+      
       <div className="center-container">
         <div className="cp">
           <div
             onClick={() => setShowPicker(!showPicker)}
             className="show-cp"
+            style={{ backgroundColor: textColor }}
           ></div>
+
           {showPicker && (
-            <ColorPicker onChange={(color) => setTextColor(color)} />
+            <ColorPicker
+              selectedColor={textColor}
+              onChange={(color) => setTextColor(color)}
+            />
           )}
         </div>
 
@@ -34,11 +41,7 @@ function MemesPhotos() {
         </div>
       </div>
 
-      <Masonry
-        breakpointCols={3}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
+      <Masonry breakpointCols={3} columnClassName="my-masonry-grid_column">
         {images.map((photo, index) => (
           <Meme
             key={index}
