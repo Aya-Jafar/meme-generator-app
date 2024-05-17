@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import Tesseract from "tesseract.js";
 import testImage from "./d.webp";
-import cv from "opencv4nodejs";
+// import cv from "opencv4nodejs";
+
 
 function PositionTest() {
   const [recognizedText, setRecognizedText] = useState("");
